@@ -1,11 +1,134 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netlify CMS</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Painel</title>
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
 </head>
 <body>
-<h1>dkeu</h1>
+  <img class="back" src="back.png">
+  <header class="cabecalho">
+    <img src="img/logo.svg">
+    <i onclick="showmenu()" class='bx bx-menu' ></i>
+  </header>
+  <main>
+  <section class="user-data">
+    <div class="user">
+      <span id="welcome"></span>
+    </div>
+    <section class="infos">
+      <div class="box-value">
+        <i class='bx bx-wallet'></i><div class="values"><span class="ballance" id="current_balance"></span><span class="txt-ballance">Saldo atual</span></div>
+      </div>
+      <div class="box-value">
+        <i class='bx bx-cart-download' ></i> <div class="values"><span id="total_spent" class="ballance"></span><span class="txt-ballance">Total Gasto</span></div>
+      </div>
+      <div class="box-value">
+        <i class='bx bxs-receipt'></i> <div class="values"><span id="total_deposited" class="ballance"></span><span class="txt-ballance">Total Depositado</span></div>
+      </div>
+    </section>
+      <div class="nivel">
+        <span class="atual"><i class='bx bxs-medal'></i>Status atual: <strong id="current_status"></strong><b id="porcentagem"></b></span>
+        <div class="line"><div id="line"></div></div>
+        <span class="alert-line">Você deve depositar <strong id="spend_to_level_up"></strong>. para o proximo nivel <strong id="next_status"></strong>.</span>
+      </div>
+    <button onclick="beneficio()"><span>Veja os Beneficios</span></button>
+  </section>
+    <section class="sessao">
+  <button id="whatsapp" class="selected">Funções Whatsapp</button>
+  <button id="instagram">Funções instagram</button>
+</section>
+  <div id="conteudo1" class="conteudo whatsapp">
+  <form style="display: flex; flex-direction: column; justify-content: center; width: 100%; height: 100%;" action="javascript:sendrequest()">
+    <span class="txt-sessao">Serviço</span>
+    <select name="whatsapp" id="whatsapp">
+  <option value="deslog">Deslogar número</option>
+  <option value="desban">Desbanir número</option>
+  <option value="crash">Crash temporario</option>
+  <option value="ban">Banimento Permanente</option>
+  <option value="tempban">Banimento de 5min</option>
+</select>
+    <span class="txt-sessao">Número do Alvo</span>
+    <input type="tel" placeholder="+9999999999999" value="+55" required>
+    <button type="submit">Enviar request</button>
+    </form>
+    <span class="alert-sessao">*caso de fique spammando request sua conta sera banida</span>
+  </div>
+  <div id="conteudo2" class="conteudo instagram inativa">
+  <form style="display: flex; flex-direction: column; justify-content: center; width: 100%; height: 100%;" action="javascript:sendrequest()">
+    <span class="txt-sessao">Serviço</span>
+    <select name="instagram" id="instagram">
+  <option value="crash">Invadir Sms</option>
+  <option value="desban">Desbanir conta</option>
+  <option value="ban">Banimento Permanente</option>
+  <option value="tempban">Banimento de conversa 3 dias</option>
+</select>
+    <span class="txt-sessao">Nome de usuario do Alvo</span>
+    <input type="username" placeholder="@instagram" value="@" required>
+    <button type="submit">Enviar request</button>
+    </form>
+    <span class="alert-sessao">*caso de fique spammando request sua conta sera banida</span>
+  </div>
+    <section class="rodape">
+      <div class="line-rodape"></div>
+      <span class="copy">Produzido e criado por Chronic Inc. Todos os direitos reservados.</span>
+     <div class="powered">
+       <div class="content-p">
+       <span>Powered by Chornic Inc.<img src="img/logo.svg"></span>
+       </div>
+      </div>
+    </section>
+    <section class="beneficios divpopup popup-off">
+      <div class="main-beneficios">
+        <span class="title-popup"><strong>Beneficios Plano Novato</strong></span>
+        <span class="desc-popup">• Valor por request: R$ 15<p></p>• Suporte Previo<p></p>• Uso ilimitado<p></p>• Não há acesso a beneficios vip</span>
+          <button onclick="closebeneficios()">Entendido</button>
+      </div>
+    </section>
+    <section id="menu" class="menu popup-off">
+      <div>
+      <button onclick="depositmenu()"><svg  data-icon="square-plus" class="svg-inline--fa fa-square-plus dark:text-white text-black h-5 w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><g class="fa-duotone-group"><path class="fa-secondary" fill="#646464" d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"></path><path class="fa-primary" fill="currentColor" d="M200 280v64c0 13.3 10.7 24 24 24s24-10.7 24-24V280h64c13.3 0 24-10.7 24-24s-10.7-24-24-24H248V168c0-13.3-10.7-24-24-24s-24 10.7-24 24v64H136c-13.3 0-24 10.7-24 24s10.7 24 24 24h64z"></path></g></svg>Depositar</button>
+      <button onclick="alert('Página ainda em DESENVOLVIMENTO!')"><svg  data-icon="users-medical" class="svg-inline--fa fa-users-medical dark:text-white text-black h-5 w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><g class="fa-duotone-group"><path class="fa-secondary" fill="#646464" d="M64 80a80 80 0 1 1 160 0A80 80 0 1 1 64 80zm368 0a80 80 0 1 1 160 0A80 80 0 1 1 432 80zM106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7C0 239.8 47.8 192 106.7 192zm298 128c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H605.3c-6.6-18.6-24.4-32-45.3-32H528c-20.9 0-38.7 13.4-45.3 32H405.3c-.2 0-.4 0-.7 0zm28.2 43.5C422.5 372.3 416 385.4 416 400v32c0 26.5 21.5 48 48 48h16v16c0 5.6 1 11 2.7 16H154.7c-14.7 0-26.7-11.9-26.7-26.7C128 411.7 187.7 352 261.3 352H378.7c19.3 0 37.6 4.1 54.2 11.5zM320 128a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"></path><path class="fa-primary" fill="currentColor" d="M528 320c-8.8 0-16 7.2-16 16v48l-48 0c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h48v48c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V448h48c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16l-48 0V336c0-8.8-7.2-16-16-16H528z"></path></g></svg>Indique e Ganhe</button>
+      <button onclick="document.cookie = 'userlogged=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'; window.location.href='signup/'"><svg  data-icon="arrow-right-from-arc" class="svg-inline--fa fa-arrow-right-from-arc text-red-500 h-5 w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g class="fa-duotone-group"><path class="fa-secondary" fill="#6D2929" d="M256 64C150 64 64 150 64 256s86 192 192 192c17.7 0 32 14.3 32 32s-14.3 32-32 32C114.6 512 0 397.4 0 256S114.6 0 256 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path><path class="fa-primary" fill="#EF4444" d="M345.4 121.4c12.5-12.5 32.8-12.5 45.3 0l112 112c12.5 12.5 12.5 32.8 0 45.3l-112 112c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L402.7 288H192c-17.7 0-32-14.3-32-32s14.3-32 32-32H402.7l-57.4-57.4c-12.5-12.5-12.5-32.8 0-45.3z"></path></g></svg>Sair</button>
+      </div>
+    </section>
+  <div onclick="closedeposit()" class="blur-menu ismenudeposit popup-off"></div>
+    <div class="divdeposit ismenudeposit popup-off">
+    <section id="menudeposit" class="menudeposit ismenudeposit">
+      <div class="main-deposit">
+        <div class="title-container">
+      <span class="title-deposit">Realizar recarga ( min 30R$ )</span>
+      <button onclick="closedeposit()" class="close-deposit"><?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --><svg fill="#FFFFFF" height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 	 viewBox="0 0 1792 1792" xml:space="preserve"><path d="M1082.2,896.6l410.2-410c51.5-51.5,51.5-134.6,0-186.1s-134.6-51.5-186.1,0l-410.2,410L486,300.4	c-51.5-51.5-134.6-51.5-186.1,0s-51.5,134.6,0,186.1l410.2,410l-410.2,410c-51.5,51.5-51.5,134.6,0,186.1	c51.6,51.5,135,51.5,186.1,0l410.2-410l410.2,410c51.5,51.5,134.6,51.5,186.1,0c51.1-51.5,51.1-134.6-0.5-186.2L1082.2,896.6z"/></svg></button>
+      </div>
+        <span class="sub-deposit">Pix Manual</span>
+          <form action="javascript:submitdeposit()">
+          <input id="submit" type="number" placeholder="Valor (BRL)" required>
+          <button class="submit">Finalizar Pagamento</button>
+          </form>
+            <section class="autopix">
+        <span class="sub-deposit">Pix Automatico</span>
+  <div class="values">
+    <div>
+  <button class="btn-values" onclick="window.location.href = `https://pay.vaquinhaelizabeth.shop/z0qn35zvkpMZ98m?email=${useremail1}`">R$30</button>
+<button class="btn-values" onclick="window.location.href = `https://pay.vaquinhaelizabeth.shop/DPXw3Xdo18E3zmp?email=${useremail1}`">R$80</button>
+<button class="btn-values" onclick="window.location.href = `https://pay.vaquinhaelizabeth.shop/eApQgzLYyXyZEb7?email=${useremail1}`">R$100</button>
+<button class="btn-values" onclick="window.location.href = `https://pay.vaquinhaelizabeth.shop/mwK436aNqblgQ8b?email=${useremail1}`">R$120</button>
+<button class="btn-values" onclick="window.location.href = `https://pay.vaquinhaelizabeth.shop/5pjw3RXedNVG2lQ?email=${useremail1}`">R$140</button>
+<button class="btn-values" onclick="window.location.href = `https://pay.vaquinhaelizabeth.shop/lDW0Za0oEb83N7E?email=${useremail1}`">R$270</button>
+<button class="btn-values" onclick="window.location.href = `https://pay.vaquinhaelizabeth.shop/2wq7GrKpEM8gBAN?email=${useremail1}`">R$999</button>
+      </div>
+    </div>
+            </section>
+          </div>
+      </section>
+    </div>
+  </main>
+  <div class="blur divpopup popup-off"></div>
+  <div onclick="closemenu()" class="blur-menu menu divpopup popup-off"></div>
+  <script src="script.js"></script>
 </body>
-</html>
+      </html>
