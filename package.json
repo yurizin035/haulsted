@@ -1,0 +1,17 @@
+{
+  "name": "haulsted",
+  "version": "1.0.0",
+  "description": "Netlify Functions Example",
+  "main": "index.js",
+  "scripts": {
+    "start": "netlify dev",
+    "build": "npx cecil build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@cecil/cli": "^7.0.0"  // adicione a versão mais recente
+  },
+  "engines": {
+    "node": "16.x"
+  }
+}
