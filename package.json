@@ -4,10 +4,13 @@
   "description": "Netlify Functions Example",
   "main": "index.js",
   "scripts": {
-    "start": "netlify dev"
+    "start": "netlify dev",
+    "build": "npx cecil build"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "@cecil/cli": "^7.0.0"  // adicione a versão mais recente
+  },
   "engines": {
     "node": "16.x"
   }
