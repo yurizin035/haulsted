@@ -9,7 +9,7 @@ async function login() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     try {
-        const response = await fetch(`https://haulsted.netlify.app/.netlify/functions/getUserByEmail?email=eujoao035@gmail.com${email}`);
+        const response = await fetch(`https://haulsted.netlify.app/.netlify/functions/getUserByEmail?email=${email}`);
         const data = await response.json();
 
         const user = data.users.find(user => user.email === email && user.password === password);
