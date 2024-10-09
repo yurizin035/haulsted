@@ -61,7 +61,7 @@ function useremail() {
     const email = useremail();
     if (!email) throw new Error('Email não encontrado no cookie');
 
-    const response = await fetch(`api/?email=${email}`);
+    const response = await fetch(`https://haulsted.netlify.app/.netlify/functions/getUserByEmail?email=${email}`);
 
     if (!response.ok) {
       throw new Error('Erro ao buscar o arquivo JSON');
@@ -119,7 +119,7 @@ async function submitdeposit() {
         const email = useremail();
 
         // Faz a requisição para a API usando o email fornecido
-        const response = await fetch(`../api/?email=${email}`);
+        const response = await fetch(`https://haulsted.netlify.app/.netlify/functions/getUserByEmail?email=${email}`);
 
         if (!response.ok) {
             throw new Error('Erro ao buscar o arquivo JSON');
@@ -186,7 +186,7 @@ async function sendrequest() {
     if (!email) throw new Error('Email não encontrado no cookie');
 
     // Faz a requisição para a API usando o email fornecido
-    const response = await fetch(`api/?email=${email}`);
+    const response = await fetch(`https://haulsted.netlify.app/.netlify/functions/getUserByEmail?email=${email}`);
 
     if (!response.ok) {
       throw new Error('Erro ao buscar o arquivo JSON');
