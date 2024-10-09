@@ -1,10 +1,9 @@
-const fs = require('fs');
-const path = require('path');
+const fetch = require('node-fetch');
 
 exports.handler = async function(event, context) {
-  // Ajuste o caminho para fora da pasta de funções
-  const jsonFile = path.resolve(__dirname, '../data/users.json');
+  const jsonUrl = 'https://haulsted.netlify.app/data/users.json';
 
+  // Verifica se o parâmetro email foi passado na URL
   const email = event.queryStringParameters.email;
   if (!email) {
     return {
@@ -14,11 +13,14 @@ exports.handler = async function(event, context) {
   }
 
   try {
-    const jsonData = fs.readFileSync(jsonFile, 'utf-8');
-    const data = JSON.parse(jsonData);
+    // Faz a requisição para obter o arquivo JSON
+    const response = await fetch(jsonUrl);
+    const data = await response.json();
 
+    // Busca o usuário com o email fornecido
     const user = data.users.find(u => u.email === email);
 
+    // Verifica se o usuário foi encontrado
     if (!user) {
       return {
         statusCode: 404,
@@ -26,6 +28,7 @@ exports.handler = async function(event, context) {
       };
     }
 
+    // Retorna o usuário dentro da array 'users'
     return {
       statusCode: 200,
       body: JSON.stringify({ users: [user] }),
