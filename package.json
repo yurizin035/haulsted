@@ -10,5 +10,8 @@
   "dependencies": {},
   "devDependencies": {
     "@cecil/cli": "^7.0.0"  // adicione a versão mais recente
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
