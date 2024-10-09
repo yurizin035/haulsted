@@ -1,5 +1,20 @@
 {
     "users": [
+        
+        {
+            "username": "yukihaxxous",
+            "whatsapp": "4888637909",
+            "email": "yukihaxxous@gmail.com",
+            "password": "yuki1234",
+            "current_balance": 0,
+            "total_spent": 0,
+            "total_deposited": 20,
+            "current_status": "novato",
+            "porcentagem": 8,
+            "spend_to_level_up": 230,
+            "next_status": "junior",
+            "recent_acquisitions": []
+        },
         {
             "username": "admin",
             "whatsapp": "99999999999",
