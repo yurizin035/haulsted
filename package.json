@@ -9,7 +9,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@cecil/cli": "^7.0.0"  // adicione a versão mais recente
+    "@cecil/cli": "^7.0.0"
   },
   "engines": {
     "node": "16.x"
