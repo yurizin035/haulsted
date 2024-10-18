@@ -2,6 +2,20 @@
     "users": [
         
         {
+            "username": "Theusdk7",
+            "whatsapp": "99999979999",
+            "email": "Matheuscastro123hs@gmail.com",
+            "password": "Theusdk7",
+            "current_balance": 0,
+            "total_spent": 0,
+            "total_deposited": 20,
+            "current_status": "novato",
+            "porcentagem": 8,
+            "spend_to_level_up": 230,
+            "next_status": "junior",
+            "recent_acquisitions": []
+        },
+        {
             "username": "LuxKaos",
             "whatsapp": "99999979999",
             "email": "gabrielfrigodurand@gmail.com",
