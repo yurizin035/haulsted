@@ -2,6 +2,20 @@
     "users": [
         
         {
+            "username": "Gu.Vieira",
+            "whatsapp": "99999979999",
+            "email": "santosgustavovieira@gmail.com",
+            "password": "Vieir@2025",
+            "current_balance": 0,
+            "total_spent": 0,
+            "total_deposited": 20,
+            "current_status": "novato",
+            "porcentagem": 8,
+            "spend_to_level_up": 230,
+            "next_status": "junior",
+            "recent_acquisitions": []
+        },
+        {
             "username": "hidan2k24",
             "whatsapp": "99999979999",
             "email": "systemtunned@gmail.com",
