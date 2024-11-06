@@ -2,6 +2,20 @@
     "users": [
         
         {
+            "username": "tiomagoofc",
+            "whatsapp": "99999979999",
+            "email": "thor111202@gmail.com",
+            "password": "97856678",
+            "current_balance": 30,
+            "total_spent": 0,
+            "total_deposited": 50,
+            "current_status": "novato",
+            "porcentagem": 20,
+            "spend_to_level_up": 200,
+            "next_status": "junior",
+            "recent_acquisitions": []
+        },
+        {
             "username": "user #819",
             "whatsapp": "99999979999",
             "email": "me.penelopect@gmail.com",
