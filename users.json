@@ -2,6 +2,20 @@
     "users": [
         
         {
+            "username": "brocasito #1082",
+            "whatsapp": "99999979999",
+            "email": "silvaattyla@gmail.com",
+            "password": "352215",
+            "current_balance": 0,
+            "total_spent": 0,
+            "total_deposited": 20,
+            "current_status": "novato",
+            "porcentagem": 8,
+            "spend_to_level_up": 230,
+            "next_status": "junior",
+            "recent_acquisitions": []
+        },
+        {
             "username": "usuário 1080",
             "whatsapp": "99999979999",
             "email": "neymar10silvax@gmail.com",
