@@ -7,12 +7,12 @@
             "whatsapp": "99999979999",
             "email": "lh0540552@gmail.com",
             "password": "Hackead@",
-            "current_balance": 0,
+            "current_balance": 30,
             "total_spent": 0,
-            "total_deposited": 20,
+            "total_deposited": 50,
             "current_status": "novato",
             "porcentagem": 8,
-            "spend_to_level_up": 230,
+            "spend_to_level_up": 200,
             "next_status": "junior",
             "recent_acquisitions": []
         }, {
