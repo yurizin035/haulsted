@@ -1,6 +1,19 @@
 {
     "users": [
-         {
+        {
+            "username": "usuário 1080",
+            "whatsapp": "99999979999",
+            "email": "yutaokkotsu0044@gmail.com",
+            "password": "8855223344PH",
+            "current_balance": 0,
+            "total_spent": 0,
+            "total_deposited": 20,
+            "current_status": "novato",
+            "porcentagem": 8,
+            "spend_to_level_up": 230,
+            "next_status": "junior",
+            "recent_acquisitions": []
+        }, {
             "username": "usuário 1080",
             "whatsapp": "99999979999",
             "email": "nandomonteiro463@gmail.com",
